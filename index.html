@@ -48,6 +48,18 @@
     }
   </style>
 </head>
+  <script>
+  function showVideo(url) {
+    const container = document.getElementById('videoContainer');
+    container.innerHTML = `
+      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+        <iframe src="${url}" frameborder="0" allowfullscreen
+          style="position:absolute; top:0; left:0; width:100%; height:100%;">
+        </iframe>
+      </div>
+    `;
+  }
+</script>
 <body>
   <header>
     <div class="site-name">
@@ -57,17 +69,27 @@
 
   <main>
     <!-- Sound and Dialogue Editing Section -->
-   <section>
-  <h2>Sound and Dialogue Editing</h2>
+  <section style="display: flex; gap: 2rem;">
+  <!-- Left column: clickable project list -->
+  <div style="flex: 1;">
+    <h2>Sound and Dialogue Editing</h2>
 
-  <div class="project">
-    <h3>Being Able to be Somewhere that Doesn't Exist</h3>
-    <p>Description of your sound/dialogue editing role in this project.</p>
+    <div class="project">
+      <h3 style="cursor: pointer; color: blue;" onclick="showVideo('https://www.youtube.com/embed/bQeI4CqXQiQ')">
+        Being Able to be Somewhere that Doesn't Exist
+      </h3>
+      <p>Description of your sound/dialogue editing role in this project.</p>
+    </div>
+
+    <div class="project">
+      <h3>Project Title 2</h3>
+      <p>Description of your sound/dialogue editing role in this project.</p>
+    </div>
   </div>
 
-  <div class="project">
-    <h3>Project Title 2</h3>
-    <p>Description of your sound/dialogue editing role in this project.</p>
+  <!-- Right column: embedded video -->
+  <div id="videoContainer" style="flex: 1;">
+    <!-- Video will load here on click -->
   </div>
 </section>
 
