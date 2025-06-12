@@ -35,21 +35,21 @@
     }
 
     section {
-      margin-bottom: 2rem; /* Reduced space here */
+      margin-bottom: 2rem; /* Reduced space between sections */
     }
 
     h2 {
       font-size: 1.5rem;
       margin-bottom: 1.5rem;
     }
-    
-    h3 {
-      font-size: 1rem;
-      margin-bottom: .5rem;/* Adjust size as you want */
-      }
 
     .project {
-      margin-bottom: 2rem;
+      margin-bottom: 2rem; /* Default space between projects */
+    }
+
+    /* Reduce space specifically between projects in Sound and Dialogue Editing */
+    #sound-dialogue-section .project {
+      margin-bottom: 1rem;
     }
 
     /* Two-column layout for Sound and Dialogue Editing */
@@ -75,6 +75,14 @@
       cursor: pointer;
       color: inherit;
       text-decoration: none;
+    }
+
+    /* Styling for h3 */
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: normal;
+      color: #111;
     }
   </style>
 </head>
