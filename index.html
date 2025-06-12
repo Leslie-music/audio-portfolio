@@ -155,18 +155,18 @@
 }
 </script>
   
-  <script>
-  function copyEmail(event) {
-    event.preventDefault(); // Prevent default mailto behavior for a moment
+ <script>
+  function copyEmail() {
     const email = "sjcgpj@gmail.com";
-    navigator.clipboard.writeText(email).then(() => {
-      // After copying, open the mail client
-      window.location.href = "mailto:" + email;
-    }).catch(err => {
-      console.error("Failed to copy email: ", err);
-    });
+    navigator.clipboard.writeText(email)
+      .then(() => {
+        alert("Email copied to clipboard!");
+      })
+      .catch(err => {
+        console.error("Failed to copy email: ", err);
+      });
   }
-  </script>
+</script>
 
 </body>
 </html>
