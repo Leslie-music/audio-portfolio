@@ -40,7 +40,7 @@
 
     h2 {
       font-size: 1.5rem;
-      margin-bottom: 1.5rem; /* Added space below section title */
+      margin-bottom: 1.5rem;
     }
 
     .project {
@@ -55,8 +55,13 @@
       align-items: flex-start;
     }
 
-    #sound-dialogue-section > div {
+    #sound-dialogue-section > div:first-child {
       flex: 1;
+      overflow-y: auto;
+    }
+
+    #sound-dialogue-section > div:last-child {
+      flex: 1.5;
       overflow-y: auto;
     }
 
@@ -65,11 +70,6 @@
       cursor: pointer;
       color: inherit;
       text-decoration: none;
-    }
-
-    /* Video container */
-    #videoContainer {
-      /* video container styles are inline in JS */
     }
   </style>
 </head>
