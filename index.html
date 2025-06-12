@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sam Johnson</title>
 
   <style>
@@ -46,20 +46,33 @@
     .project {
       margin-bottom: 2rem;
     }
+
+    /* Two-column layout for Sound and Dialogue Editing */
+    #sound-dialogue-section {
+      display: flex;
+      gap: 2rem;
+      height: 500px;
+      align-items: flex-start;
+    }
+
+    #sound-dialogue-section > div {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    /* Style clickable project title */
+    .clickable-project {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+    }
+
+    /* Video container */
+    #videoContainer {
+      /* video container styles are inline in JS */
+    }
   </style>
 </head>
-  <script>
-  function showVideo(url) {
-    const container = document.getElementById('videoContainer');
-    container.innerHTML = `
-      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
-        <iframe src="${url}" frameborder="0" allowfullscreen
-          style="position:absolute; top:0; left:0; width:100%; height:100%;">
-        </iframe>
-      </div>
-    `;
-  }
-</script>
 <body>
   <header>
     <div class="site-name">
@@ -69,29 +82,29 @@
 
   <main>
     <!-- Sound and Dialogue Editing Section -->
-  <section style="display: flex; gap: 2rem;">
-  <!-- Left column: clickable project list -->
-  <div style="flex: 1;">
-    <h2>Sound and Dialogue Editing</h2>
+    <section id="sound-dialogue-section">
+      <!-- Left column: clickable projects -->
+      <div>
+        <h2>Sound and Dialogue Editing</h2>
 
-    <div class="project">
-      <h3 style="cursor: pointer; color: blue;" onclick="showVideo('https://www.youtube.com/embed/bQeI4CqXQiQ')">
-        Being Able to be Somewhere that Doesn't Exist
-      </h3>
-      <p>Description of your sound/dialogue editing role in this project.</p>
-    </div>
+        <div class="project">
+          <h3 class="clickable-project" onclick="showVideo('https://www.youtube.com/embed/bQeI4CqXQiQ')">
+            Being Able to be Somewhere that Doesn't Exist
+          </h3>
+          <p>Description of your sound/dialogue editing role in this project.</p>
+        </div>
 
-    <div class="project">
-      <h3>Project Title 2</h3>
-      <p>Description of your sound/dialogue editing role in this project.</p>
-    </div>
-  </div>
+        <div class="project">
+          <h3>Project Title 2</h3>
+          <p>Description of your sound/dialogue editing role in this project.</p>
+        </div>
+      </div>
 
-  <!-- Right column: embedded video -->
-  <div id="videoContainer" style="flex: 1;">
-    <!-- Video will load here on click -->
-  </div>
-</section>
+      <!-- Right column: video player -->
+      <div id="videoContainer">
+        <!-- Video will load here on click -->
+      </div>
+    </section>
 
     <!-- Mixing and Mastering Section -->
     <section>
@@ -108,17 +121,18 @@
       </div>
     </section>
   </main>
-<script>
-  function showVideo(url) {
-    const container = document.getElementById('videoContainer');
-    container.innerHTML = `
-      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
-        <iframe src="${url}" frameborder="0" allowfullscreen
-          style="position:absolute; top:0; left:0; width:100%; height:100%;">
-        </iframe>
-      </div>
-    `;
-  }
-</script>
+
+  <script>
+    function showVideo(url) {
+      const container = document.getElementById('videoContainer');
+      container.innerHTML = `
+        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+          <iframe src="${url}" frameborder="0" allowfullscreen
+            style="position:absolute; top:0; left:0; width:100%; height:100%;">
+          </iframe>
+        </div>
+      `;
+    }
+  </script>
 </body>
 </html>
