@@ -105,9 +105,9 @@
         <a href="https://instagram.com/lesliedoesmusic" target="_blank">
           <img src="assets/pictures/instagram.png" alt="Instagram" class="icon-img">
         </a>
-        <a href="mailto:sjcgpj@gmail.com" onclick="copyEmail(event)">
-    <img src="assets/pictures/email.png" alt="Email" class="icon-img">
-  </a>
+       <button onclick="copyEmail()" style="background: none; border: none; padding: 0; cursor: pointer;">
+  <img src="assets/pictures/email.png" alt="Email" class="icon-img">
+</button>
       </div>
     </div>
   </header>
@@ -153,7 +153,8 @@
     </iframe>
   `;
 }
-
+</script>
+  
   <script>
   function copyEmail(event) {
     event.preventDefault(); // Prevent default mailto behavior for a moment
@@ -165,7 +166,6 @@
       console.error("Failed to copy email: ", err);
     });
   }
-</script>
   </script>
 
 </body>
