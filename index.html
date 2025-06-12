@@ -36,6 +36,7 @@
     }
 
     .custom-icons {
+      position: relative; /* For toast absolute positioning */
       display: flex;
       gap: 1rem;
     }
@@ -44,6 +45,23 @@
       width: 24px;
       height: 24px;
       cursor: pointer;
+    }
+
+    /* Toast message styling */
+    #toast {
+      position: absolute;
+      bottom: 36px;  /* Just above the email icon */
+      right: 0;
+      background: #111;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      z-index: 10;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     main {
@@ -105,9 +123,10 @@
         <a href="https://instagram.com/lesliedoesmusic" target="_blank">
           <img src="assets/pictures/instagram.png" alt="Instagram" class="icon-img">
         </a>
-       <button onclick="copyEmail()" style="background: none; border: none; padding: 0; cursor: pointer;">
-  <img src="assets/pictures/email.png" alt="Email" class="icon-img">
-</button>
+        <button onclick="copyEmail()" style="background: none; border: none; padding: 0; cursor: pointer;">
+          <img src="assets/pictures/email.png" alt="Email" class="icon-img">
+        </button>
+        <div id="toast">Email copied to clipboard!</div>
       </div>
     </div>
   </header>
@@ -144,29 +163,36 @@
 
   <script>
     function loadVideo(url) {
-  const videoContainer = document.getElementById('video-container');
-  videoContainer.innerHTML = `
-    <iframe src="${url}" 
-            allowfullscreen 
-            sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" 
-            style="width:100%; height:700px; border:none;">
-    </iframe>
-  `;
-}
-</script>
-  
- <script>
-  function copyEmail() {
-    const email = "sjcgpj@gmail.com";
-    navigator.clipboard.writeText(email)
-      .then(() => {
-        alert("Email copied to clipboard!");
-      })
-      .catch(err => {
-        console.error("Failed to copy email: ", err);
-      });
-  }
-</script>
+      const videoContainer = document.getElementById('video-container');
+      videoContainer.innerHTML = `
+        <iframe src="${url}" 
+                allowfullscreen 
+                sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" 
+                style="width:100%; height:700px; border:none;">
+        </iframe>
+      `;
+    }
+
+    function copyEmail() {
+      const email = "sjcgpj@gmail.com";
+      navigator.clipboard.writeText(email)
+        .then(() => {
+          const toast = document.getElementById("toast");
+          // Show toast
+          toast.style.opacity = "1";
+          toast.style.visibility = "visible";
+
+          // Hide after 2.5 seconds with fade out
+          setTimeout(() => {
+            toast.style.opacity = "0";
+            toast.style.visibility = "hidden";
+          }, 2500);
+        })
+        .catch(err => {
+          console.error("Failed to copy email: ", err);
+        });
+    }
+  </script>
 
 </body>
 </html>
