@@ -65,19 +65,20 @@
     }
 
     main {
-      display: flex;
-      flex-direction: row;
-      padding: 2rem;
-    }
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  gap: 2rem;
+}
 
     .left-column {
-      width: 50%;
-      padding-right: 2rem;
-    }
+  width: 30%; /* was 50% */
+  padding-right: 1rem;
+}
 
-    .right-column {
-      width: 50%;
-    }
+  .right-column {
+  width: 70%; /* was 50% */
+}
 
     h2 {
       margin-bottom: 0.5rem;
@@ -106,10 +107,10 @@
     }
 
     iframe {
-      width: 100%;
-      height: 700px;
-      border: none;
-    }
+  width: 100%;
+  height: 80vh; /* make it responsive to viewport height */
+  border: none;
+}
   </style>
 </head>
 <body>
